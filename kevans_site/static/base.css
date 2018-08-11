@@ -1,0 +1,12 @@
+.header{
+    display: flex;
+}
+
+.header-item-home{
+    width: 60%;
+}
+
+.header-item{
+    width: 10%;
+    text-align:center;
+}
