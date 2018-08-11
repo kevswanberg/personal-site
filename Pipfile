@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 wagtail = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
