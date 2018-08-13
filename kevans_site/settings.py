@@ -25,7 +25,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'l27_37d-kp113#duqy#cdcv$3ciwj5y$axr9k(++w-5!d5(%bt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+print(os.environ.get('DEBUG'))
+DEBUG = os.environ.get('DEBUG', False)
 
 ALLOWED_HOSTS = []
 
@@ -157,5 +158,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+SECURE_SSL_REDIRECT = not DEBUG
 
 django_heroku.settings(locals())
