@@ -58,6 +58,8 @@ INSTALLED_APPS = [
 
     'experience',
     'home',
+    'contact',
+    'resume',
     'kevans_site'
 
 ]

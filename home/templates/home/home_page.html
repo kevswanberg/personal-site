@@ -3,6 +3,10 @@
 
 
 {% block content %}
-<h1>{{ self.title }}</h1>
-{{ self.info | richtext }}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+  <h1 class="display-4">{{ self.title }}</h1>
+  {{ self.info | richtext }}
+  </div>
+</div>
 {% endblock %}
