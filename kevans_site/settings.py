@@ -60,7 +60,8 @@ INSTALLED_APPS = [
     'home',
     'contact',
     'resume',
-    'kevans_site'
+    'kevans_site',
+    'blog'
 
 ]
 
