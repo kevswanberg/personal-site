@@ -10,3 +10,7 @@
     width: 10%;
     text-align:center;
 }
+
+.shadow-text {
+    text-shadow: 2px 2px #000000;
+}

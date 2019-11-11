@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 {% load wagtailcore_tags %}
-
+{% load wagtailimages_tags %}
 
 {% block content %}
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-  <h1 class="display-4">{{ self.title }}</h1>
-  {{ self.info | richtext }}
+{% image page.banner_image original as banner %}
+<div class="jumbotron jumbotron-fluid" style="background-image:  url({{banner.url}}); background-position: center">
+  <div class="container" syle="text-shadow: 2px 2px #000">
+
+    <h1 class="display-4 text-light shadow-text">{{ self.title }}</h1>
+    <p class="text-light shadow-text">{{self.info}}</p>
+  
   </div>
 </div>
 {% endblock %}
