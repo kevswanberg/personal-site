@@ -1,4 +1,5 @@
 {% load static %}
+{% load wagtailcore_tags %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -19,21 +20,11 @@
   </button>
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav mr-auto">
-        {% block nav-item-contact %}
+        {% for section in request.site.root_page.get_children %}
         <li class="nav-item">
-          <a class="nav-link" href="/contact/">contact</a>
+          <a class="nav-link" href="{% pageurl section %}">{{section.slug}}</a>
         </li>
-        {% endblock %}
-        {% block nav-item-resume %}
-        <li class="nav-item">
-          <a class="nav-link" href="/resume/">resume</a>
-        </li>
-        {% endblock %}
-        {% block nav-item-blog %}
-        <li class="nav-item">
-          <a class="nav-link" href="/blog/">blog</a>
-        </li>
-        {% endblock %}
+        {% endfor %}
       </ul>
     </div>
   </nav>
