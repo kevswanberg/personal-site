@@ -9,17 +9,19 @@
 
 {% block content %}
 <div class="container">
-<h3>{{ self.name }}</h3>
-<p>
-  <a href="mailto:{{self.email}}" >{{ self.email }}</a>
-</p>
+  <h3>{{ self.name }}</h3>
+  <p>
+    <a href="mailto:{{self.email}}" >{{ self.email }}</a>
+  </p>
 
-<ul>
-{% for l in self.social_links.all %}
-<li><a href={{l.link}}>{{l.platform_name}}</a></li>
-{% endfor %}
+  <ul class="list-group list-group0-flush">
+    {% for l in self.social_links.all %}
+    
+    <li class="list-group-item">
+      <i class="fa {{l.icon_class}}"></i>
+      <a href={{l.link}}>{{l.handle}}</a>
+    </li>
+    {% endfor %}
+  </ul>
 </div>
-</ul>
-
-
 {% endblock %}

@@ -12,14 +12,26 @@ from wagtail.snippets.models import register_snippet
 
 
 class SocialMediaLink(Orderable):
-    platform_name = models.CharField(max_length=100)
+    PLATFORM_CHOICES = (
+        ('github', 'Github'),
+        ('stack-overflow', 'Stack Overflow'),
+        ('facebook', 'Facebook'),
+        ('twitter', 'Twitter')
+    )
+    platform_name = models.CharField(max_length=100, choices=PLATFORM_CHOICES)
     link = models.URLField()
+    handle = models.CharField(max_length=100, null=True)
     page = ParentalKey('ContactPage', related_name='social_links', on_delete=models.CASCADE)
 
     panels = [
         FieldPanel("platform_name"),
-        FieldPanel("link")
+        FieldPanel("link"),
+        FieldPanel("handle")
     ]
+
+    @property
+    def icon_class(self):
+        return f'fa-{self.platform_name.lower()}'
 
 
 
