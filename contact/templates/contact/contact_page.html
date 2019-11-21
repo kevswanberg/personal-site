@@ -4,19 +4,13 @@
 <li class="nav-item active">
   <a class="nav-link" href="/contact/">contact</a>
 </li>
-
 {% endblock %}
 
 {% block content %}
 <div class="container">
-  <h3>{{ self.name }}</h3>
-  <p>
-    <a href="mailto:{{self.email}}" >{{ self.email }}</a>
-  </p>
-
-  <ul class="list-group list-group0-flush">
+  <h1 class="d-none d-print-block">{{ self.name }}</h1>
+  <ul class="list-group list-group-flush">
     {% for l in self.social_links.all %}
-    
     <li class="list-group-item">
       <i class="fa {{l.icon_class}}"></i>
       <a href={{l.link}}>{{l.handle}}</a>

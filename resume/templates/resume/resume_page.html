@@ -3,17 +3,16 @@
 
 {% block content %}
 <div class="container">
-<h1>{{ self.name }}</h1>
-<p>{{ self.email }}</p>
+  <h1 class="d-none d-print-block">{{ self.name }}</h1>
+  <p class="d-none d-print-block">{{ self.email }}</p>
 
-<h2>Experience</h2>
-{% for exp in self.experience.all %}
+  {% for exp in self.experience.all %}
+  <h3>{{ exp.title }}</h3>
+  <h5>{{ exp.when.lower}} {% if exp.when.upper %}- {{exp.when.upper }} {% endif %}</h5>
+  {{ exp.description|richtext }}
+  {% endfor %}
 
-<h3>{{ exp.title }}</h3>
-<h5>{{ exp.when.lower}} {% if exp.when.upper %} {{exp.when.upper }} {% endif %}</h5>
-{{ exp.description|richtext }}
-{% endfor %}
-<h2>Interests</h2>
-{{ self.interests | richtext}}
+  <h3>Interests</h3>
+  {{ self.interests | richtext}}
 </div>
 {% endblock %}

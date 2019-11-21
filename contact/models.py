@@ -13,13 +13,14 @@ from wagtail.snippets.models import register_snippet
 
 class SocialMediaLink(Orderable):
     PLATFORM_CHOICES = (
+        ('at', 'Email'),
         ('github', 'Github'),
         ('stack-overflow', 'Stack Overflow'),
         ('facebook', 'Facebook'),
         ('twitter', 'Twitter')
     )
     platform_name = models.CharField(max_length=100, choices=PLATFORM_CHOICES)
-    link = models.URLField()
+    link = models.CharField(max_length=280)
     handle = models.CharField(max_length=100, null=True)
     page = ParentalKey('ContactPage', related_name='social_links', on_delete=models.CASCADE)
 
