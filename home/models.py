@@ -7,8 +7,8 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 
 
 class HomePage(Page):
+    name = models.CharField(max_length=280)
     info = models.CharField(max_length=140)
-    
     banner_image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -18,6 +18,7 @@ class HomePage(Page):
     )
 
     content_panels = Page.content_panels + [
+        FieldPanel('name'),
         FieldPanel('info'),
         ImageChooserPanel('banner_image')
     ]
