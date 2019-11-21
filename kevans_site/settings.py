@@ -163,6 +163,7 @@ AWS_STORAGE_BUCKET_NAME = os.environ.get('S3_BUCKET_NAME')
 S3_USE_SIGV4 = True
 AWS_S3_ADDRESSING_STYLE = "path"
 AWS_S3_REGION_NAME='us-east-2'
+AWS_DEFAULT_ACL=None
 
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
