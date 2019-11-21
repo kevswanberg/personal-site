@@ -9,6 +9,7 @@ psycopg2 = "*"
 gunicorn = "*"
 django-heroku = "*"
 "psycopg2-binary" = "*"
+django-storages = "*"
 
 [dev-packages]
 
