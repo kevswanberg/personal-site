@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'wagtail.core',
     'wagtail.contrib.routable_page',
     'taggit',
+    'storages',
 
     'experience',
     'home',
