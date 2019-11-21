@@ -4,12 +4,10 @@
 
 {% block content %}
 {% image page.banner_image original as banner %}
-<div class="jumbotron jumbotron-fluid" style="background-image:  url({{banner.url}}); background-position: center">
-  <div class="container" syle="text-shadow: 2px 2px #000">
-
+<div class="jumbotron jumbotron-fluid jumbotron-image" style="background-image:  url({{banner.url}})">
+  <div class="container">
     <h1 class="display-4 text-light shadow-text">{{ self.title }}</h1>
     <p class="text-light shadow-text">{{self.info}}</p>
-  
   </div>
 </div>
 {% endblock %}
