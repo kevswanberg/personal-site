@@ -16,9 +16,11 @@ class HomePage(Page):
         on_delete=models.SET_NULL,
         related_name='home_pages'
     )
+    content = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
         FieldPanel('name'),
         FieldPanel('info'),
-        ImageChooserPanel('banner_image')
+        ImageChooserPanel('banner_image'),
+        FieldPanel('content', classname='full')
     ]

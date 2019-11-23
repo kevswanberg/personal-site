@@ -15,6 +15,7 @@ from wagtail.snippets.models import register_snippet
 
 class ResumeExperience(Orderable):
     title = models.CharField(max_length=100)
+    url = models.URLField(null=True)
     description = RichTextField()
     when = DateRangeField()
     page = ParentalKey('ResumePage', related_name='experience', on_delete=models.CASCADE)
@@ -22,8 +23,9 @@ class ResumeExperience(Orderable):
 
     panels = [
         FieldPanel("title"),
+        FieldPanel("url"),
         FieldPanel("when"),
-        FieldPanel("description")
+        FieldPanel("description", classname="full")
     ]
 
 
