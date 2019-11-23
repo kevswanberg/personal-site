@@ -7,7 +7,7 @@
   <p class="d-none d-print-block">{{ self.email }}</p>
 
   {% for exp in self.experience.all %}
-  <h3>{% if exp.url %}<a href={{ exp.url}}>{{ exp.title }}</a> {% else %} {{exp.title}} {% endif %}</h3>
+  <h2>{% if exp.url %}<a href={{ exp.url}}>{{ exp.title }}</a> {% else %} {{exp.title}} {% endif %}</h2>
   <h5>{{ exp.when.lower}} {% if exp.when.upper %}- {{exp.when.upper }} {% endif %}</h5>
 
   {{ exp.description|richtext }}

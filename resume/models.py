@@ -15,7 +15,7 @@ from wagtail.snippets.models import register_snippet
 
 class ResumeExperience(Orderable):
     title = models.CharField(max_length=100)
-    url = models.URLField(null=True)
+    url = models.URLField(null=True, blank=True)
     description = RichTextField()
     when = DateRangeField()
     page = ParentalKey('ResumePage', related_name='experience', on_delete=models.CASCADE)
