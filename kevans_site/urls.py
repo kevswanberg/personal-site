@@ -7,6 +7,7 @@ from experience.views import ExperienceModelViewSet
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
+from wagtail.contrib.sitemaps.views import sitemap
 
 
 api_router = DefaultRouter()
@@ -14,6 +15,7 @@ api_router.register(r'work-experience', ExperienceModelViewSet)
 
 
 urlpatterns = [
+    re_path('^sitemap\.xml', sitemap),
     path('admin/', admin.site.urls),
     path('api/', include(api_router.urls)),
     re_path(r'^cms/', include(wagtailadmin_urls)),
