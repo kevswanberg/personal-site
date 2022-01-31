@@ -1,5 +1,6 @@
 {% load static %}
 {% load wagtailcore_tags %}
+{% wagtail_site as current_site %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -21,7 +22,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
-        {% for section in request.site.root_page.get_children %}
+        {% for section in current_site.root_page.get_children %}
         <li class="nav-item">
           <a class="nav-link" href="{% pageurl section %}">{{section.slug}}</a>
         </li>
