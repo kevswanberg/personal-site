@@ -3,16 +3,22 @@
 
 {% block content %}
 <div class="container">
-  <h1 class="d-none d-print-block">{{ self.name }}</h1>
-  <p class="d-none d-print-block">{{ self.email }}</p>
-
+  <div style="display: flex; justify-content: space-between">
+    <h1 class="d-none d-print-block">{{ self.name }}</h1>
+    <p style="padding-top: .5rem" class="d-none d-print-block">{{ self.email }}</p>
+  </div>
+    <hr class="d-none d-print-block" />
+  <h3>About</h3>
+  <p> {{ self.about | richtext }}</p>
+  <h3>Experience</h3>
   {% for exp in self.experience.all %}
-  <h2>{% if exp.url %}<a href={{ exp.url}}>{{ exp.title }}</a> {% else %} {{exp.title}} {% endif %}</h2>
-  <h5>{{ exp.when.lower}} {% if exp.when.upper %}- {{exp.when.upper }} {% endif %}</h5>
-
+  <div style="display: flex; justify-content: space-between;">
+    <h4>{% if exp.url %}<a href={{ exp.url}}>{{ exp.title }}</a> {% else %} {{exp.title}} {% endif %}
+    </h4>
+    <h6 style="padding-top: .5rem">{{ exp.when.lower}} {% if exp.when.upper %}- {{exp.when.upper }} {% endif %}</h6>
+  </div>
   {{ exp.description|richtext }}
   {% endfor %}
-
   <h3>Interests</h3>
   {{ self.interests | richtext}}
 </div>
