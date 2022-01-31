@@ -15,7 +15,7 @@
   <div style="display: flex; justify-content: space-between;">
     <h4>{% if exp.url %}<a href={{ exp.url}}>{{ exp.title }}</a> {% else %} {{exp.title}} {% endif %}
     </h4>
-    <h6 style="padding-top: .5rem">{{ exp.when.lower}} {% if exp.when.upper %}- {{exp.when.upper }} {% endif %}</h6>
+    <span style="padding-top: .5rem">{{ exp.when.lower | date:'M Y'}} {% if exp.when.upper %}- {{exp.when.upper | date:'M Y' }} {% endif %}</span>
   </div>
   {{ exp.description|richtext }}
   {% endfor %}
