@@ -20,3 +20,22 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+h2,h3,h4,h5,h6 {
+    font-family: Helvetica;
+    color: darkcyan;
+}
+
+.container{
+    padding-top: 2rem
+}
+
+.national-park{
+    font-family: NationalPark;
+}
+
+@font-face {
+    font-family: 'NationalPark';
+    src: local('NationalPark'),
+         url('../static/fonts/NationalPark-Regular.otf') format('opentype');
+}

@@ -7,19 +7,18 @@
     <h1 class="d-none d-print-block">{{ self.name }}</h1>
     <p style="padding-top: .5rem" class="d-none d-print-block">{{ self.email }}</p>
   </div>
-    <hr class="d-none d-print-block" />
-  <h3>About</h3>
+  <hr class="d-none d-print-block" />
+  <h2>About</h2>
   <p> {{ self.about | richtext }}</p>
-  <h3>Experience</h3>
+  <h2>Experience</h2>
   {% for exp in self.experience.all %}
   <div style="display: flex; justify-content: space-between;">
-    <h4>{% if exp.url %}<a href={{ exp.url}}>{{ exp.title }}</a> {% else %} {{exp.title}} {% endif %}
-    </h4>
+    <h4>{{exp.title}} {% if exp.url %}<a class="d-print-none" href={{ exp.url}}><i class="fa fa-link"></i></a>{% endif %} </h4>
+
     <span style="padding-top: .5rem">{{ exp.when.lower | date:'M Y'}} {% if exp.when.upper %}- {{exp.when.upper | date:'M Y' }} {% endif %}</span>
+
   </div>
-  {{ exp.description|richtext }}
+  {{ exp.description | richtext }}
   {% endfor %}
-  <h3>Interests</h3>
-  {{ self.interests | richtext}}
 </div>
 {% endblock %}
