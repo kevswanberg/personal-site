@@ -17,6 +17,11 @@ import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -28,9 +33,6 @@ SECRET_KEY = 'l27_37d-kp113#duqy#cdcv$3ciwj5y$axr9k(++w-5!d5(%bt'
 DEBUG = os.environ.get('DEBUG', False)
 
 ALLOWED_HOSTS = []
-
-
-
 
 # Application definition
 
@@ -66,7 +68,6 @@ INSTALLED_APPS = [
     'resume',
     'kevans_site',
     'blog'
-
 ]
 
 WAGTAIL_SITE_NAME = 'kevan_site'
@@ -175,11 +176,12 @@ else:
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
     STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
-    ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+
     AWS_S3_OBJECT_PARAMETERS = {
         'CacheControl': 'max-age=86400',
     }
 
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
 SECURE_SSL_REDIRECT = not DEBUG
 
