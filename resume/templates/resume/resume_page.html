@@ -2,20 +2,28 @@
 {% load wagtailcore_tags %}
 
 {% block content %}
-<div class="container">
-  <div style="display: flex; justify-content: space-between">
+<div class="container pt-3">
+  <div class="d-flex justify-content-between">
     <h1 class="d-none d-print-block">{{ self.name }}</h1>
-    <p style="padding-top: .5rem" class="d-none d-print-block">{{ self.email }}</p>
+    <p class="d-none d-print-block pt-2">{{ self.email }}</p>
   </div>
   <hr class="d-none d-print-block" />
+
   <h2>About</h2>
   <p> {{ self.about | richtext }}</p>
+
   <h2>Experience</h2>
   {% for exp in self.experience.all %}
-  <div style="display: flex; justify-content: space-between;">
-    <h4>{{exp.title}} {% if exp.url %}<a class="d-print-none" href={{ exp.url}}><i class="fa fa-link"></i></a>{% endif %} </h4>
+  <div class="d-flex justify-content-between">
+    <div class="d-flex">
+      <h4>{{exp.title}}</h4> 
+      {% if exp.url %}
+      <a class="d-print-none pl-2 link-secondary" href={{ exp.url}}>
+        <i class="fa fa-external-link"></i></a>
+      {% endif %}
+    </div>
 
-    <span style="padding-top: .5rem">{{ exp.when.lower | date:'M Y'}} {% if exp.when.upper %}- {{exp.when.upper | date:'M Y' }} {% endif %}</span>
+    <span class="pt-2">{{ exp.when.lower | date:'M Y'}} {% if exp.when.upper %} - {{exp.when.upper | date:'M Y' }} {% endif %}</span>
 
   </div>
   {{ exp.description | richtext }}
