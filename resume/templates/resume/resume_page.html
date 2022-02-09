@@ -14,19 +14,22 @@
 
   <h2>Experience</h2>
   {% for exp in self.experience.all %}
-  <div class="d-flex justify-content-between">
-    <div class="d-flex">
-      <h4>{{exp.title}}</h4> 
+  <div class="d-sm-flex justify-content-between">
+    <div class="d-flex flex-wrap">
+      <h4>{{exp.title}}
       {% if exp.url %}
-      <a class="d-print-none pl-2 link-secondary" href={{ exp.url}}>
+      <a class="d-print-none p-2 link-secondary" href={{ exp.url}}>
         <i class="fa fa-external-link"></i></a>
       {% endif %}
+      </h4>
     </div>
 
-    <span class="pt-2">{{ exp.when.lower | date:'M Y'}} {% if exp.when.upper %} - {{exp.when.upper | date:'M Y' }} {% endif %}</span>
+    <span class="p-4 p-sm-2">{{ exp.when.lower | date:'M Y'}} {% if exp.when.upper %} - {{exp.when.upper | date:'M Y' }} {% endif %}</span>
 
   </div>
+  <p>
   {{ exp.description | richtext }}
+  </p>
   {% endfor %}
 </div>
 {% endblock %}
